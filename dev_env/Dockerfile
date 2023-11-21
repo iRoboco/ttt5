@@ -31,7 +31,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # 22 for ssh server. 7777 for gdb server.
-EXPOSE 22 7777 80 8080
+EXPOSE 22 7777
 
 # Create dev user with password 'dev'
 RUN useradd -ms /bin/bash dev
