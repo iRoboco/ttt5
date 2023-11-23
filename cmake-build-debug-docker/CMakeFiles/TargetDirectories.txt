@@ -1,3 +1,0 @@
-/tmp/ttt5/cmake-build-debug-docker/CMakeFiles/ttt5.dir
-/tmp/ttt5/cmake-build-debug-docker/CMakeFiles/edit_cache.dir
-/tmp/ttt5/cmake-build-debug-docker/CMakeFiles/rebuild_cache.dir
