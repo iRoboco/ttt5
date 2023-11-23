@@ -1,7 +1,11 @@
-FROM nginx:alpine
-LABEL authors="roboco"
+FROM node:alpine as build
 
-COPY public /usr/share/nginx/html
-COPY default.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
 
-EXPOSE 80
+FROM nginx:stable-alpine
+COPY --from=build /app/public /app/public
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 8080
