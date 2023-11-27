@@ -1,0 +1,1 @@
+Docker image including develop enviranment (gcc, boost) for build and run c++ backend remotely from Clion IDE
