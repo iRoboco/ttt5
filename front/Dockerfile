@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 RUN npm ci && npm run build
 
-FROM nginx:stable-alpine
+FROM nginx:alpine
 
 ENV PORT=8080
 EXPOSE $PORT
