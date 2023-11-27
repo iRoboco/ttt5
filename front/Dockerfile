@@ -1,10 +1,10 @@
-FROM node:alpine as build
+FROM node:stable-alpine as build
 
 WORKDIR /app
 COPY . .
 RUN npm ci && npm run build
 
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 COPY --from=build /app/public /app/public
 COPY nginx.conf /etc/nginx/nginx.conf
