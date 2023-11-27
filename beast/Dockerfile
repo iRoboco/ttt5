@@ -26,8 +26,7 @@ FROM ubuntu:latest
 COPY --from=build /cpp/src/project /app/
 
 # Defining the PORT environment variable
-ENV PORT=8080
-EXPOSE $PORT
+EXPOSE 8080
 
 # Starting service on $PORT
-CMD ["/app/http_server_sync", "0.0.0.0", "${PORT}", "/app"]
+ENTRYPOINT ["/app/http_server_sync", "0.0.0.0", "8080", "/app"]
