@@ -25,7 +25,8 @@ RUN g++ http_server_sync.cpp -o http_server_sync -lpthread
 FROM ubuntu:latest
 COPY --from=build /cpp/src/project /app/
 
-ENTRYPOINT ["/app/http_server_sync", "0.0.0.0", "8080", "/app/wwwroot"]
+# Defining the PORT environment variable
+ENV PORT=8080
+EXPOSE $PORT
 
-EXPOSE 8080
-
+ENTRYPOINT ["/app/http_server_sync", "0.0.0.0", "$PORT", "/app/wwwroot"]

@@ -12,14 +12,14 @@ cd ttt5
 * Build the backebnd
 ```bash
 cd beast
-docker build -t ttt-backend:latest .
+docker build -t ttt5-backend:latest .
 docker tag #(will be continued...)
 docker push #(will be continued...)
 ```
 * Build the frontend:
 ```bash
 cd front
-docker build -t ttt-frontend:latest .
+docker build -t ttt5-frontend:latest .
 docker tag #(will be continued...)
 docker push #(will be continued...)
 ```
