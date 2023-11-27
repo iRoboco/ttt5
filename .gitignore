@@ -2,3 +2,4 @@
 cmake-build-debug-docker/*
 !cmake-build-debug-docker/ttt5
 CMakeFiles/*
+CMakeCache.txt
