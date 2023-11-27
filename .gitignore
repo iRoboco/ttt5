@@ -1,3 +1,4 @@
 */__pycache__/
 cmake-build-debug-docker/*
 !cmake-build-debug-docker/ttt5
+CMakeFiles/*
