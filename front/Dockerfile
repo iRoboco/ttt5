@@ -8,4 +8,5 @@ FROM nginx:stable-alpine
 COPY --from=build /app/public /app/public
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 8080
+ENV PORT=8080
+EXPOSE $PORT

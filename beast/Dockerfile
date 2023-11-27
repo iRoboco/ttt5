@@ -29,4 +29,4 @@ COPY --from=build /cpp/src/project /app/
 ENV PORT=8080
 EXPOSE $PORT
 
-ENTRYPOINT ["/app/http_server_sync", "0.0.0.0", "$PORT", "/app/wwwroot"]
+ENTRYPOINT ["/app/http_server_sync", "0.0.0.0", "$PORT", "/app"]
