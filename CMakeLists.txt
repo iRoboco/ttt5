@@ -12,5 +12,5 @@ if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS}) 
     add_executable(ttt5
         beast/app/http_server_sync.cpp) 
-    target_link_libraries(progname ${Boost_LIBRARIES})
+    target_link_libraries(ttt5 ${Boost_LIBRARIES})
 endif()
