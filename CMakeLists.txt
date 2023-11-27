@@ -16,3 +16,5 @@ if(Boost_FOUND)
         beast/app/http_server_sync.cpp) 
     target_link_libraries(ttt5 ${Boost_LIBRARIES})
 endif()
+
+set (EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/cmake-build-gitpod-local)
