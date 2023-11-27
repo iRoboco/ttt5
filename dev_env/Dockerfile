@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS build
+FROM ubuntu:alpine AS build
 
 # Install tools required for the project
 RUN apt-get update \
