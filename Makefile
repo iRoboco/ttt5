@@ -116,43 +116,6 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ttt5
-
-# Build rule for target.
-ttt5: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ttt5
-.PHONY : ttt5
-
-# fast build rule for target.
-ttt5/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ttt5.dir/build.make CMakeFiles/ttt5.dir/build
-.PHONY : ttt5/fast
-
-beast/app/http_server_sync.o: beast/app/http_server_sync.cpp.o
-.PHONY : beast/app/http_server_sync.o
-
-# target to build an object file
-beast/app/http_server_sync.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ttt5.dir/build.make CMakeFiles/ttt5.dir/beast/app/http_server_sync.cpp.o
-.PHONY : beast/app/http_server_sync.cpp.o
-
-beast/app/http_server_sync.i: beast/app/http_server_sync.cpp.i
-.PHONY : beast/app/http_server_sync.i
-
-# target to preprocess a source file
-beast/app/http_server_sync.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ttt5.dir/build.make CMakeFiles/ttt5.dir/beast/app/http_server_sync.cpp.i
-.PHONY : beast/app/http_server_sync.cpp.i
-
-beast/app/http_server_sync.s: beast/app/http_server_sync.cpp.s
-.PHONY : beast/app/http_server_sync.s
-
-# target to generate assembly for a file
-beast/app/http_server_sync.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ttt5.dir/build.make CMakeFiles/ttt5.dir/beast/app/http_server_sync.cpp.s
-.PHONY : beast/app/http_server_sync.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,10 +124,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ttt5"
-	@echo "... beast/app/http_server_sync.o"
-	@echo "... beast/app/http_server_sync.i"
-	@echo "... beast/app/http_server_sync.s"
 .PHONY : help
 
 
