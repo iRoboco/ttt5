@@ -8,7 +8,7 @@ Clone the project:
 git clone https://github.com/iRoboco/ttt5.git
 cd ttt5
 ```
-### Run containers:
+### Build containers and push it in Yandex.Registry:
 * Build the backebnd
 ```bash
 cd beast
@@ -33,3 +33,15 @@ docker images
 >ttt-frontend   latest    35f270c84ef3   11 seconds ago   46MB
 >ttt5-backend   latest    7a55ca15bed1   24 minutes ago   79.4MB
 >```
+
+### Run images locally
+
+* Backend:
+```bash
+docker run -e PORT=8080 -p 8080:8080 ttt5-backend:latest /app/http_server_sync 0.0.0.0 ${PORT} /app
+```
+
+* Frontend:
+```bash
+docker run -e PORT=8080 -p 8080:8080 ttt5-frontend:latest
+```
