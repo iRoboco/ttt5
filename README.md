@@ -9,19 +9,20 @@ git clone https://github.com/iRoboco/ttt5.git
 cd ttt5
 ```
 ### Build containers and push it in Yandex.Registry:
+In the following commands <registry_ID> must be replaced with the ID value of your [Yandex Cloud Container Registry](https://cloud.yandex.ru/docs/container-registry/)
 * Build the backebnd
 ```bash
 cd beast
 docker build -t ttt5-backend:latest .
-docker tag #(will be continued...)
-docker push #(will be continued...)
+docker tag ttt5-backend cr.yandex/<registry_ID>/ttt5-backend
+docker push cr.yandex/<registry_ID>/ttt5-backend
 ```
 * Build the frontend:
 ```bash
 cd front
 docker build -t ttt5-frontend:latest .
-docker tag #(will be continued...)
-docker push #(will be continued...)
+docker tag ttt5-frontend cr.yandex/<registry_ID>/ttt5-frontend
+docker push cr.yandex/<registry_ID>/ttt5-backend
 ```
 * Check builded images:
 ```bash
@@ -29,12 +30,14 @@ docker images
 ```
 >Result in terminal
 >```
->REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
->ttt-frontend   latest    35f270c84ef3   11 seconds ago   46MB
->ttt5-backend   latest    7a55ca15bed1   24 minutes ago   79.4MB
+>REPOSITORY                                     TAG       IMAGE ID       CREATED             SIZE
+>cr.yandex/<registry_ID>/ttt5-backend    latest    56ac4c64e47b   About an hour ago   79.4MB
+>ttt5-backend                                   latest    56ac4c64e47b   About an hour ago   79.4MB
+>cr.yandex/<registry_ID>/ttt5-frontend   latest    7eab5a1d045e   About an hour ago   46MB
+>ttt5-frontend                                  latest    7eab5a1d045e   About an hour ago   46MB
 >```
 
-### Run images locally
+### Run containers locally
 
 * Backend:
 ```bash
