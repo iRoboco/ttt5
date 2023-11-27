@@ -6,7 +6,8 @@ RUN npm ci && npm run build
 
 FROM nginx:alpine
 
-EXPOSE 8080
-
 COPY --from=build /app/public /app/public
-ADD nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8080
