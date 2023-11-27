@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(ttt5)
+project(http_server_sync)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -12,9 +12,9 @@ find_package(Boost 1.83.0 COMPONENTS)
 
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS}) 
-    add_executable(ttt5
+    add_executable(http_server_sync
         beast/app/http_server_sync.cpp) 
-    target_link_libraries(ttt5 ${Boost_LIBRARIES})
+    target_link_libraries(http_server_sync ${Boost_LIBRARIES})
 endif()
 
 set (EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/cmake-build-gitpod-local)

@@ -5,8 +5,10 @@ COPY . .
 RUN npm ci && npm run build
 
 FROM nginx:stable-alpine
-COPY --from=build /app/public /app/public
-COPY nginx.conf /etc/nginx/nginx.conf
 
 ENV PORT=8080
 EXPOSE $PORT
+
+COPY --from=build /app/public /app/public
+ADD nginx.conf /etc/nginx/nginx.template
+CMD sh -c "envsubst \"`env | awk -F = '{printf \" \\\\$%s\", $1}'`\" < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
