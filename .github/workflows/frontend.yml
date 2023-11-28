@@ -43,10 +43,10 @@ jobs:
         id: deploy-sls-container
         uses: yc-actions/yc-sls-container-deploy@v2
         with:
-          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS_DEPLOY }}
           container-name: ttt5-frontend
           folder-id: b1grt8plintcemv12lmn
-          revision-service-account-id: ajev1ou1akitingoqoch
+          revision-service-account-id: ajen2s0d8a01q640j592
           revision-cores: 1
           revision-memory: 128Mb
           revision-core-fraction: 5
