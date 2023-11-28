@@ -1,15 +1,15 @@
 FROM ubuntu:latest AS build
 
 # Install tools required for the project
-RUN apt-get update \
-    && apt-get install gcc -y \
-    && apt-get install g++ -y \
-    && apt-get install cmake -y \
-    && apt-get install wget -y 
+RUN apt-get -qq update \
+    && apt-get -qq install gcc -y \
+    && apt-get -qq install g++ -y \
+    && apt-get -qq install cmake -y \
+    && apt-get -qq install wget -y 
 
 # Install Boost
 RUN cd /home \
-    && wget http://downloads.sourceforge.net/project/boost/boost/1.83.0/boost_1_83_0.tar.gz \
+    && wget -q http://downloads.sourceforge.net/project/boost/boost/1.83.0/boost_1_83_0.tar.gz \
     && tar xfz boost_1_83_0.tar.gz \
     && rm boost_1_83_0.tar.gz \
     && cd boost_1_83_0 \
