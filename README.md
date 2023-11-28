@@ -28,7 +28,7 @@ docker push cr.yandex/<registry_ID>/ttt5-backend
 ```bash
 docker images
 ```
->Result in terminal
+>_Result in terminal_
 >```
 >REPOSITORY                              TAG       IMAGE ID       CREATED             SIZE
 >cr.yandex/<registry_ID>/ttt5-backend    latest    56ac4c64e47b   About an hour ago   79.4MB
@@ -38,12 +38,11 @@ docker images
 >```
 
 ### Run containers locally
-
+_The port number will be set by the serverless Yandex container in the PORT environment, so the local launch command looks like this_
 * Backend:
 ```bash
 docker run -e PORT=8080 -p 8080:8080 ttt5-backend:latest /app/http_server_sync 0.0.0.0 ${PORT} /app
 ```
-
 * Frontend:
 ```bash
 docker run -e PORT=8080 -p 8080:8080 ttt5-frontend:latest
