@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Push to Container Registry
+name: Push to Yandex Container Registry
 
 # Controls when the action will run. 
 on:
@@ -25,20 +25,20 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Login to Yandex Cloud Container Registry
-        id: login-cr
         uses: yc-actions/yc-cr-login@v1
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
           CR_REGISTRY: crpohm9f9utrvsdi6dja
           CR_REPOSITORY: ttt5-frontend
           IMAGE_TAG: ${{ github.sha }}
-        run:
+        run: |
           docker build -f ./beast/Dockerfile -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
-
+      
       - name: Deploy Serverless Container
         id: deploy-sls-container
         uses: yc-actions/yc-sls-container-deploy@v2
