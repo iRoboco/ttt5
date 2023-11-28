@@ -30,11 +30,11 @@ docker images
 ```
 >Result in terminal
 >```
->REPOSITORY                                     TAG       IMAGE ID       CREATED             SIZE
+>REPOSITORY                              TAG       IMAGE ID       CREATED             SIZE
 >cr.yandex/<registry_ID>/ttt5-backend    latest    56ac4c64e47b   About an hour ago   79.4MB
->ttt5-backend                                   latest    56ac4c64e47b   About an hour ago   79.4MB
+>ttt5-backend                            latest    56ac4c64e47b   About an hour ago   79.4MB
 >cr.yandex/<registry_ID>/ttt5-frontend   latest    7eab5a1d045e   About an hour ago   46MB
->ttt5-frontend                                  latest    7eab5a1d045e   About an hour ago   46MB
+>ttt5-frontend                           latest    7eab5a1d045e   About an hour ago   46MB
 >```
 
 ### Run containers locally
