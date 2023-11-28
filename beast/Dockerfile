@@ -14,7 +14,7 @@ RUN cd /home \
     && rm boost_1_83_0.tar.gz \
     && cd boost_1_83_0 \
     && ./bootstrap.sh --with-libraries=system \
-    && ./b2 install
+    && ./b2 install -sS
 
 # Copy the entire project and build it
 COPY ./beast/app /cpp/src/project/ 
