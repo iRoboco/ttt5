@@ -1,0 +1,1 @@
+Clion IDE remote develop enviranment (gcc, boost) in Docker image

@@ -25,9 +25,13 @@ RUN g++ http_server_sync.cpp -o http_server_sync -lpthread
 FROM ubuntu:latest
 COPY --from=build /cpp/src/project /app/
 
+##############################################################################
+# The following construction is intended for transferring the PORT environment
+# variable to the container by Yandex Cloud services
+
 # Defining the PORT environment variable
-ENV PORT=8080
-EXPOSE $PORT
+# ENV PORT=8080
+# EXPOSE $PORT
 
 # Starting service on $PORT
 CMD ["/app/http_server_sync", "0.0.0.0", "${PORT}", "/app"]
