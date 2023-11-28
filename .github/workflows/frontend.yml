@@ -65,6 +65,6 @@ jobs:
           revision-cores: 1
           revision-memory: 128Mb
           revision-core-fraction: 5
-          revision-concurrency: 2
+          revision-concurrency: 1
           revision-image-url: cr.yandex/crpohm9f9utrvsdi6dja/ttt5-frontend:${{ github.sha }}
           revision-execution-timeout: 5
