@@ -38,12 +38,12 @@ docker images
 >```
 
 ### Run containers locally
-_The port number will be set by the serverless Yandex container in the PORT environment, so the local launch command looks like this_
+(the port number is hardcoded in Dockerfile and nginx.conf)
 * Backend:
 ```bash
-docker run -e PORT=8080 -p 8080:8080 ttt5-backend:latest /app/http_server_sync 0.0.0.0 ${PORT} /app
+docker run -p 8080:8080 ttt5-backend:latest
 ```
 * Frontend:
 ```bash
-docker run -e PORT=8080 -p 8080:8080 ttt5-frontend:latest
+docker run -p 8080:8080 ttt5-frontend:latest
 ```

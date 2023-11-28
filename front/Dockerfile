@@ -1,17 +1,13 @@
-FROM node:alpine as build
+FROM node:stable-alpine as build
 
 WORKDIR /app
 COPY . .
 RUN npm ci && npm run build
 
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
-ENV PORT=8080
-EXPOSE $PORT
+COPY --from=build /app/public /app/public
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /app/public /usr/share/nginx/html
-ADD nginx.conf /etc/nginx/nginx.template
-CMD sh -c "envsubst \"`env | awk -F = '{printf \" \\\\$%s\", $1}'`\" < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
-
-# Another variant from https://stackoverflow.com/questions/49147389/heroku-docker-port-environment-variable-in-nginx/51316428
-#CMD sh -c "envsubst < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+EXPOSE 8080
