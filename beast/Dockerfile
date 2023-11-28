@@ -1,11 +1,11 @@
 FROM ubuntu:latest AS build
 
 # Install tools required for the project
-RUN apt-get update \
-    && apt-get install gcc -y \
-    && apt-get install g++ -y \
-    && apt-get install cmake -y \
-    && apt-get install wget -y 
+RUN apt-get -q update \
+    && apt-get -q install gcc -y \
+    && apt-get -q install g++ -y \
+    && apt-get -q install cmake -y \
+    && apt-get -q install wget -y 
 
 # Install Boost
 RUN cd /home \
@@ -13,8 +13,8 @@ RUN cd /home \
     && tar xfz boost_1_83_0.tar.gz \
     && rm boost_1_83_0.tar.gz \
     && cd boost_1_83_0 \
-    && ./bootstrap.sh --with-libraries=system \
-    && ./b2 install -sS
+    && ./bootstrap.sh --with-libraries=system -s \
+    && ./b2 install -sS 
 
 # Copy the entire project and build it
 COPY ./beast/app /cpp/src/project/ 

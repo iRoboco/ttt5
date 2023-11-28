@@ -43,7 +43,7 @@ jobs:
         id: deploy-sls-container
         uses: yc-actions/yc-sls-container-deploy@v2
         with:
-          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS_DEPLOY }}
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
           container-name: ttt5-frontend
           folder-id: b1grt8plintcemv12lmn
           revision-service-account-id: ajen2s0d8a01q640j592
