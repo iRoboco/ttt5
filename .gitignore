@@ -1,5 +1,6 @@
 */__pycache__/
 cmake-build-debug-docker/*
-!cmake-build-debug-docker/ttt5
+!cmake-build-debug-docker/http_server_sync
 CMakeFiles/*
 CMakeCache.txt
+cmake_install.cmake
