@@ -12,12 +12,12 @@ RUN apt-get update \
 
 # Install Boost
 RUN cd /home \
-    && wget http://downloads.sourceforge.net/project/boost/boost/1.83.0/boost_1_83_0.tar.gz \
-    && tar xfz boost_1_83_0.tar.gz \
-    && rm boost_1_83_0.tar.gz \
-    && cd boost_1_83_0 \
+    && wget -q https://github.com/boostorg/boost/releases/download/boost-1.83.0/boost-1.83.0.tar.gz \
+    && tar xfz boost-1.83.0.tar.gz \
+    && rm boost-1.83.0.tar.gz \
+    && cd boost-1.83.0 \
     && ./bootstrap.sh --with-libraries=system \
-    && ./b2 install
+    && ./b2 install > /dev/null
 
 # Taken from - https://docs.docker.com/engine/examples/running_ssh_service/#environment-variables
 RUN mkdir /var/run/sshd
