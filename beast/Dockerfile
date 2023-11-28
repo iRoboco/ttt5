@@ -13,8 +13,8 @@ RUN cd /home \
     && tar xfz boost_1_83_0.tar.gz \
     && rm boost_1_83_0.tar.gz \
     && cd boost_1_83_0 \
-    && ./bootstrap.sh --with-libraries=system --quiet \
-    && ./b2 install -q 
+    && ./bootstrap.sh --with-libraries=system\
+    && ./b2 install
 
 # Copy the entire project and build it
 COPY ./app /cpp/src/project/ 
