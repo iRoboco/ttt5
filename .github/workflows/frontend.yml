@@ -61,6 +61,7 @@ jobs:
           container-name: ttt5-frontend
           folder-id: b1grt8plintcemv12lmn
           revision-service-account-id: ajelgivp974j3983qgej
+          network: enpen97urqe5l6nkl8ns
           revision-cores: 1
           revision-memory: 128Mb
           revision-core-fraction: 5
