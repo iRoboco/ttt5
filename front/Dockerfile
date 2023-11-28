@@ -12,3 +12,6 @@ EXPOSE $PORT
 COPY --from=build /app/public /usr/share/nginx/html
 ADD nginx.conf /etc/nginx/nginx.template
 CMD sh -c "envsubst \"`env | awk -F = '{printf \" \\\\$%s\", $1}'`\" < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+
+# Another variant from https://stackoverflow.com/questions/49147389/heroku-docker-port-environment-variable-in-nginx/51316428
+#CMD sh -c "envsubst < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
