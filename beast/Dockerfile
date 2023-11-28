@@ -9,13 +9,13 @@ RUN apt-get -qq update \
 
 # Install Boost
 RUN cd /home \
-    && wget -q http://downloads.sourceforge.net/project/boost/boost/1.83.0/boost_1_83_0.tar.gz \
-    && tar xfz boost_1_83_0.tar.gz \
-    && rm boost_1_83_0.tar.gz \
-    && cd boost_1_83_0 \
+    && wget -q https://github.com/boostorg/boost/releases/download/boost-1.83.0/boost-1.83.0.tar.gz \
+    && tar xfz boost-1.83.0.tar.gz \
+    && rm boost-1.83.0.tar.gz \
+    && cd boost-1.83.0 \
     && ./bootstrap.sh --with-libraries=system \
-    && ./b2 install
-
+    && ./b2 install > /dev/null
+    
 # Copy the entire project and build it
 COPY ./app /cpp/src/project/ 
 WORKDIR /cpp/src/project/
