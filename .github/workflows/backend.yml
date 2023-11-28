@@ -1,20 +1,20 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build, push and Deploy frontend container
+name: Build, push and Deploy backend container
 
 # Controls when the action will run. 
 on:
   push:
     branches:
-      - gitbub-actions
+      - master
     paths:
-      - 'front/**'
+      - 'beast/**'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 defaults:
   run:
-    working-directory: front
+    working-directory: beast
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -36,7 +36,7 @@ jobs:
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
           CR_REGISTRY: crpohm9f9utrvsdi6dja
-          CR_REPOSITORY: ttt5-frontend
+          CR_REPOSITORY: ttt5-backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
@@ -58,7 +58,7 @@ jobs:
         uses: yc-actions/yc-sls-container-deploy@v2
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-          container-name: ttt5-frontend
+          container-name: ttt5-backend
           folder-id: b1grt8plintcemv12lmn
           revision-service-account-id: ajelgivp974j3983qgej
           network: enpen97urqe5l6nkl8ns
@@ -66,5 +66,5 @@ jobs:
           revision-memory: 128Mb
           revision-core-fraction: 5
           revision-concurrency: 1
-          revision-image-url: cr.yandex/crpohm9f9utrvsdi6dja/ttt5-frontend:${{ github.sha }}
+          revision-image-url: cr.yandex/crpohm9f9utrvsdi6dja/ttt5-backend:${{ github.sha }}
           revision-execution-timeout: 5

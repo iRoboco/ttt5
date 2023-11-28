@@ -1,0 +1,17 @@
+FROM ubuntu:latest AS build
+
+# Install tools required for the project
+RUN apt-get -qq update \
+    && apt-get -qq install gcc -y \
+    && apt-get -qq install g++ -y \
+    && apt-get -qq install cmake -y \
+    && apt-get -qq install wget -y 
+
+# Install Boost
+RUN cd /home \
+    && wget -q https://github.com/boostorg/boost/releases/download/boost-1.83.0/boost-1.83.0.tar.gz \
+    && tar xfz boost-1.83.0.tar.gz \
+    && rm boost-1.83.0.tar.gz \
+    && cd boost-1.83.0 \
+    && ./bootstrap.sh --with-libraries=system \
+    && ./b2 install > /dev/null

@@ -17,4 +17,4 @@ if(Boost_FOUND)
     target_link_libraries(http_server_sync ${Boost_LIBRARIES})
 endif()
 
-set (EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/cmake-build-gitpod-local)
+set (EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/beast/build)
