@@ -57,7 +57,7 @@ jobs:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
           container-name: ttt5-frontend
           folder-id: b1grt8plintcemv12lmn
-          revision-service-account-id: ajee1im1sh3nfquj2u4k
+          revision-service-account-id: ajelgivp974j3983qgej
           revision-cores: 1
           revision-memory: 128Mb
           revision-core-fraction: 5
