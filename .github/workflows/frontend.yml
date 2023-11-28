@@ -12,7 +12,7 @@ on:
 
 defaults:
   run:
-    working-directory: beast
+    working-directory: front
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -30,7 +30,6 @@ jobs:
         uses: yc-actions/yc-cr-login@v1
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
