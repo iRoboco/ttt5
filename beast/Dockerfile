@@ -17,7 +17,7 @@ RUN cd /home \
     && ./b2 install
 
 # Copy the entire project and build it
-COPY ./app /cpp/src/project/ 
+COPY ./beast/app /cpp/src/project/ 
 WORKDIR /cpp/src/project/
 
 RUN g++ http_server_sync.cpp -o http_server_sync -lpthread
