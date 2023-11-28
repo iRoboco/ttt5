@@ -25,16 +25,31 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Login to Yandex Cloud Container Registry
+        id: login-cr
         uses: yc-actions/yc-cr-login@v1
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
           CR_REGISTRY: crpohm9f9utrvsdi6dja
           CR_REPOSITORY: ttt5-frontend
           IMAGE_TAG: ${{ github.sha }}
-        run: |
+        run:
           docker build -f ./beast/Dockerfile -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
+
+      - name: Deploy Serverless Container
+        id: deploy-sls-container
+        uses: yc-actions/yc-sls-container-deploy@v2
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          container-name: ttt5-frontend
+          folder-id: b1grt8plintcemv12lmn
+          revision-service-account-id: ajev1ou1akitingoqoch
+          revision-cores: 1
+          revision-memory: 128Mb
+          revision-core-fraction: 5
+          revision-concurrency: 2
+          revision-image-url: cr.yandex/crpohm9f9utrvsdi6dja/ttt5-frontend:${{ github.sha }}
+          revision-execution-timeout: 5
